@@ -1,0 +1,212 @@
+\usepackage{srcltx}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\usetikzlibrary{automata}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{mindmap,trees,backgrounds}
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\tikzstyle{every picture}+=[remember picture]
+
+\usepackage{listings}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\setbeamertemplate{caption}[numbered]
+
+\usepackage{multimedia}
+%\usepackage{fancyhdr}
+\usepackage{bm} % correct bold symbols, like \bm
+\usepackage{color}
+\usepackage{graphicx} % for pdf, bitmapped graphics files
+\usepackage{natbib}
+
+%\usepackage{ulem}
+%\usefonttheme{professionalfonts}
+
+\usepackage{multicol}
+
+\usepackage{tikz-qtree,tikz-qtree-compat}
+
+	\newcommand{\prob}[1]{\Pr\left[ #1 \right]}
+	\newcommand{\Prob}[1]{P\left[ #1 \right]}
+	\newcommand{\E}[1]{\mathds{E}\left[ #1 \right]}
+
+% Common stuff for linear algebra
+	\newcommand{\eye}{\mathbb I}
+	\newcommand{\br}{{\bf r}}
+	\newcommand{\bw}{{\bf w}}
+	\newcommand{\bx}{{\bf x}}
+	\newcommand{\by}{{\bf y}}
+	\newcommand{\bz}{{\bf z}}
+	\newcommand{\bp}{{\bf p}}
+	\newcommand{\be}{{\bf e}}
+	\newcommand{\bM}{{\bf M}}
+	\newcommand{\bP}{{\bf P}}
+	\newcommand{\bR}{{\bf R}}
+	\newcommand{\bW}{{\bf W}}
+	\newcommand{\bT}{{\bf T}}
+	\newcommand{\bA}{{\bf A}}
+	\newcommand{\bU}{{\bf U}}
+	\newcommand{\pivec}{{\pi}}% for as bold face pi seems broken calculus
+	\newcommand{\ddd}[2]{\frac{{\rm d}^{2} #1}{{\rm d} #2 ^{2}}}
+	\newcommand{\dd}[2]{\frac{{\rm d} #1}{{\rm d} #2}}
+	% Misc
+	\newcommand{\ith}{^{\left( i \right)}}
+	\newcommand{\te}{\!=\!} % thin equals
+	\newcommand{\sS}{\mathcal{S}} % set of states
+	\newcommand{\sA}{\mathcal{A}} % set of actions
+%	\newcommand{\mdP[2]}{\mathcal{P}_{#1 #2}}
+%	\newcommand{\mdR[2]}{\mathcal{R}_{#1 #2}}
+	\newcommand{\mdP}[3]{\mathcal{P}_{#1 #2}^{#3}}
+	\newcommand{\mdR}[3]{\mathcal{R}_{#1 #2}^{#3}}
+	\newcommand{\mdE}[1]{\mathds{E}_\pi \left[ #1 \right]}
+
+
+\renewcommand{\vec}[1]{{\boldsymbol{{#1}}}} % vector
+\newcommand{\mat}[1]{{\boldsymbol{{#1}}}} % matrix
+\newcommand{\tensor}[1]{\mathbb{#1}} % tensor
+\newcommand{\R}[0]{\mathds{R}} % real numbers
+\newcommand{\Z}[0]{\mathds{Z}} % integers
+\newcommand{\tr}[0]{\text{tr}} % trace
+\renewcommand{\d}[0]{\text{d}} % derivative
+\newcommand{\GP}[0]{\mathcal{GP}} % Fourier transform
+\newcommand{\e}[0]{\text{e}} % exp-function
+\newcommand{\Set}[1]{{\cal #1}}
+\newcommand{\erf}{\text{erf}}
+\newcommand{\inv}{^{-1}}
+\DeclareMathOperator*{\diag}{diag}
+%\newcommand{\E}{\mathds{E}} % expectation
+\newcommand{\var}{\mathds{V}}
+\newcommand{\mean}[1]{\overline{#1}} % mean value
+% \DeclareMathOperator{\d}{\mathrm{d}}
+\newcommand{\data}{\mathcal D}
+\newcommand{\gauss}[2]{\mathcal{N}\big(#1,\,#2\big)}
+\newcommand{\gaussx}[3]{\mathcal{N}\big(#1\,|\,#2,\,#3\big)}
+\newcommand{\gaussBig}[2]{\mathcal{N}\left(#1,\,#2\right)}
+\newcommand{\gaussxBig}[3]{\mathcal{N}\left(#1\,|\,#2,\,#3\right)}
+\DeclareMathOperator{\cov}{Cov}
+\newcommand{\cost}{c}
+\newcommand{\T}{^\top}
+\newcommand{\polpar}{\theta}
+\newcommand{\pol}{p_{\pi}}
+\newcommand{\ppol}{p_{\pi^\prime}}
+
+\makeatletter
+\newcommand{\shorteq}{%
+  \settowidth{\@tempdima}{-}% Width of hyphen
+  \resizebox{\@tempdima}{\height}{=}%
+}
+\makeatother
+
+
+\newcommand{\arrow}{
+\begin{tikzpicture}
+\draw [black!40!green, fill=black!40!green] (0,-0.12) -- (0,0.12) --
+(0.15,0);
+\draw [black!40!green, fill=black!40!green] (0.15,-0.12) -- (0.15,0.12) --
+(0.3,0); 
+\end{tikzpicture}
+}
+
+%\usefonttheme{professionalfonts}
+\usetikzlibrary{decorations.fractals}
+\usepackage{mathpazo}
+
+%%% BEGIN BEAMER SPECIFIC CHANGES
+\usetheme{JuanLesPins}  % 3D, Schatten
+\usecolortheme{rose}
+\useoutertheme{tree}
+\newcommand<>\lightgray[1]{{\color#2[rgb]{0.8,0.8,0.8}#1}}
+
+%\setbeamercolor{frametitle}{fg=white}
+ \setbeamercolor{title in head/foot}{fg=lightgray}
+ \setbeamercolor{section in head/foot}{fg=lightgray}
+ \setbeamercolor{subsection in head/foot}{fg=lightgray}
+\makeatletter
+\setbeamertemplate{headline}
+{%
+    \begin{beamercolorbox}[wd=\paperwidth,colsep=1.5pt]{upper separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+      \usebeamerfont{title in head/foot}\insertshorttitle   \hfill\insertframenumber/\inserttotalframenumber\hspace{0.5em}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{section in head/foot}
+      \usebeamerfont{section in head/foot}%
+      \ifbeamer@tree@showhooks
+        \setbox\beamer@tempbox=\hbox{\insertsectionhead}%
+        \ifdim\wd\beamer@tempbox>1pt%
+          \hskip2pt\raise1.9pt\hbox{\vrule width0.4pt height1.875ex\vrule width 5pt height0.4pt}%
+          \hskip1pt%
+        \fi%
+      \else%  
+        \hskip6pt%
+      \fi%
+      \insertsectionhead
+      \usebeamerfont{subsection in head/foot}%
+      \ifbeamer@tree@showhooks
+        \setbox\beamer@tempbox=\hbox{\insertsubsectionhead}%
+        \ifdim\wd\beamer@tempbox>1pt%
+          \ \raise1.9pt\hbox{\vrule width 5pt height0.4pt}%
+          \hskip1pt%
+        \fi%
+      \else%  
+        \hskip12pt%
+      \fi%
+      \insertsubsectionhead
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,colsep=1.5pt]{lower separation line head}
+    \end{beamercolorbox}
+}
+\makeatother
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+%\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{headline}{}
+
+%\setbeamerfont{myTOC}{series=\bfseries}%,size=\Large}
+
+\newenvironment<>{myblock}[1]{%
+  \begin{actionenv}#2%
+      \def\insertblocktitle{#1}%
+      \par%
+      \mode<presentation>{%
+       \setbeamercolor{block title}{fg=black,bg=blue!25!white}
+       \setbeamercolor{block body}{fg=black,bg=gray!20}
+       \setbeamercolor{itemize item}{fg=blue!40!white}
+       \setbeamertemplate{itemize item}[triangle]
+     }%
+      \usebeamertemplate{block begin}
+    {\par\usebeamertemplate{block end}}
+ \end{actionenv}}
+
+\newenvironment<>{myblock2}[1]{%
+  \begin{actionenv}#2%
+      \def\insertblocktitle{#1}%
+      \par%
+      \mode<presentation>{%
+       \setbeamercolor{block title}{fg=white,bg=green!40!black}
+       \setbeamercolor{block body}{fg=black,bg=gray!20}
+       \setbeamercolor{itemize item}{fg=green!60!black}
+       \setbeamertemplate{itemize item}[triangle]
+     }%
+      \usebeamertemplate{block begin}
+    {\par\usebeamertemplate{block end}}
+\end{actionenv}}
+    
+%%% END BEAMER SPECIFIC CHANGES
+
+%\usepackage[T1]{fontenc}
+% \usepackage[latin1]{inputenc}
+
+
+\renewcommand{\emph}[1]{\textbf{{#1}}}
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{argmax}}}
+
+\newtheorem{remark}{Remark}
+\newtheorem{assumption}{Assumption}
+\renewcommand{\alert}[1]{{\red{{#1}}}}
