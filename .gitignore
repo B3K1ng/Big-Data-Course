@@ -309,3 +309,4 @@ TSWLatexianTemp*
 
 # PDF Blocking
 *.pdf
+.DS_Store
