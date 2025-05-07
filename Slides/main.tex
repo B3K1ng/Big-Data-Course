@@ -1,0 +1,298 @@
+%\documentclass[t,handout,xcolor=dvipsnames]{beamer}
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{import}
+\usepackage{docmute}
+% \usepackage{enumitem}
+\usepackage{animate}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage[edges]{forest}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\usetikzlibrary{tikzmark,decorations.pathreplacing,shadows,arrows.meta}
+\tikzstyle{curly} = [decorate,decoration={brace,amplitude=10pt}]
+\colorlet{ProcessBlue}{blue!50!cyan}
+
+\tikzset{
+  selected/.style={draw=ProcessBlue, thick, rounded corners=2pt, inner color=ProcessBlue!25, outer color=ProcessBlue!35, drop shadow,},
+}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\centering
+\title{Analysis \& Modelling of Complex Data (1\textsuperscript{st} Half)}
+\author{Aldo Faisal \& Chaiyawan Auenpanwiriyakul}
+\institute{Universität Bayreuth}
+\date{April 19, 2024}
+
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  commentstyle=\color{green},
+  showstringspaces=false,
+  numbers=none,
+  texcl=true,
+  numberstyle=\tiny,
+  breaklines=true,
+  breakatwhitespace=true,
+  frame=single,
+  columns=fullflexible,
+  keepspaces=true,
+  captionpos=b,
+  upquote=true
+}
+
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Outline}
+\begin{frame}[allowframebreaks]
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Course Introduction}
+\subimport{01 Course Introduction}{chapter.tex}
+% \graphicspath{{01 Introduction/figures}}
+
+% \todo[inline]{Move this to lab slides}
+
+% \section{Our coding environment}
+% \begin{frame}
+% \frametitle{What is a Jupyter Notebook?}
+% \begin{itemize}
+% \item A Jupyter Notebook is an open-source web application
+% \item Allows you to create and share documents containing live code, equations, visualizations, and narrative text
+% \item Supports multiple programming languages, including Python, R, and Julia
+% \item Ideal for interactive data analysis, visualization, and documentation
+% \end{itemize}
+% \begin{center}
+% \includegraphics[width=0.33\linewidth]{jupyter-notebook-logo.png}
+% \end{center}
+% \begin{itemize}
+% \item Accessible through a web browser
+% \item Can be run locally or on a remote server
+% \item Jupyter Notebooks have a .ipynb file extension
+% \end{itemize}
+% \end{frame}
+% \begin{frame}
+
+% \frametitle{What platform to use?}
+% You have a choice:
+% \begin{itemize}
+% \item Google Colab:
+% \begin{itemize}
+% \item Cloud-based "Jupyter Notebook" environment
+% \item Ideal for collaboration and easy access
+% \item No software installation required; ready to go.
+% \item You have to be online all the time.
+% \end{itemize}
+% \item Local Python Software Installation on your computer
+% \begin{itemize}
+% \item Install Python and required libraries on your computer
+% \item Use a local Jupyter Notebook 
+% \item Full control over your environment and packages
+% \item Works offline
+% \end{itemize}
+% \item University installation of Python ...
+% \end{itemize}
+% \end{frame}
+
+% \subsection{Introduction to Google Colab}
+% \begin{frame}
+% \frametitle{What is Google Colab?}
+% \begin{itemize}
+% \item Google Colab is a free, cloud-based Jupyter Notebook environment
+% %\item Offers GPU and TPU support for faster computation
+% \item Ideal for machine learning, data analysis, and collaboration
+% \item No setup required runs entirely in your web browser
+% \item Visit \url{https://colab.research.google.com/} to access Google Colab
+% \item Sign in with your Google account
+% \item Create a new notebook by clicking on File' $\rightarrow$ New notebook'
+% \item Open an existing notebook from Google Drive or upload a local file
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Basic Colab Notebook Operations}
+% \begin{itemize}
+% \item Notebooks are composed of cells, which can be code cells or text (Markdown) cells
+% \item Click on a cell to edit its content
+% \item Press Shift + Enter to run a cell and move to the next one
+% \item Add new cells using the + Code' and + Text' buttons
+% \item Reorder cells by clicking and dragging the cell handle
+% \end{itemize}
+% \end{frame}
+
+% %\begin{frame}
+% %\frametitle{Using GPU and TPU Acceleration}
+% %\begin{itemize}
+% %\item Enable hardware acceleration for faster computation
+% %\item Click on Runtime' $\rightarrow$ Change runtime type'
+% %\item Select GPU or TPU from the Hardware accelerator' %dropdown menu \item Click Save to apply the changes
+% %\end{itemize}
+% %\begin{center}
+% %\includegraphics[width=0.7\linewidth]{colab-runtime}
+% %\end{center}
+% %\end{frame}
+
+% \begin{frame}
+% \frametitle{Sharing and Collaborating with Google Colab}
+% \begin{itemize}
+% \item Share your notebook with others using the Share button in the top-right corner \item Control access levels (view, comment, or edit) for collaborators \item Work on the notebook simultaneously in real-time \item Leave comments for your collaborators by highlighting text and clicking the Comment button
+% \end{itemize}
+% \end{frame}
+
+% \subsection{Installing Python and Using pip on a Windows Laptop}
+% \begin{frame}
+% \frametitle{Downloading Python}
+% \begin{itemize}
+% \item Visit the official Python website: \url{https://www.python.org/}
+% \item Click on the Downloads tab and select Windows
+% \item Download the latest Python version for Windows (Python 3.x)
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Installing Python}
+% \begin{itemize}
+% \item Run the downloaded installer
+% \item Check the box Add Python to PATH' to automatically set up the environment variable \item Click on Customize installation' to choose your desired settings, or `Install Now' for default settings
+% \item Wait for the installation to complete
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Verifying Python Installation}
+% \begin{itemize}
+% \item Open the Command Prompt or PowerShell
+% \item Type `python --version' and press Enter
+% \item If the installation was successful, you should see the Python version displayed
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{Using pip to Manage Packages/Libraries}
+% \begin{itemize}
+% \item pip is the package installer for Python, included with Python 3.4 and later
+% \item Open the Command Prompt or PowerShell
+% \item Install a package using: pip install package-name
+% \item Uninstall a package using: pip uninstall package-name
+% \item List installed packages using: pip list
+% \end{itemize}
+% \end{frame}
+
+
+\section{Introduction to Python}
+\subimport{02 Introduction to Python}{chapter.tex}
+% \graphicspath{{02 Introduction to Python/figures}}
+
+
+% \subsection{Python Lists}
+% \begin{frame}
+% \frametitle{Introduction to Python Lists}
+% \begin{itemize}
+% \item Python lists are versatile, ordered data structures
+% \item Lists can store elements of various data types, including numbers, strings, and other objects
+% \item Lists are useful when you do not know how many elements you want to include or if the number may change dynamically, e.g. a to-do list.
+% \end{itemize}
+% \end{frame}
+
+
+% \begin{frame}[fragile]
+% \frametitle{Python Lists}
+% \begin{lstlisting}[caption=Lists in Python][language=Python]
+
+% # Creating a list
+
+% numbers = [1, 2, 3, 4, 5]
+
+% # Accessing list elements
+
+% first_number = numbers[0]
+
+% # Modifying list elements
+
+% numbers[1] = 6
+% \end{lstlisting}
+% \end{frame}
+
+% \section{Underconstruction}
+% \begin{frame}[fragile]
+% \frametitle{Underconstruction}
+% \end{frame}
+\section{Statistics with Python}
+\subimport{03 Python and Statistics}{chapter.tex}
+
+% \graphicspath{{03 Python and Statistics/figures}}
+
+% \begin{frame}[fragile]{Scientific Frameworks and Libraries}
+%     \textbf{matplotlib.pyplot}
+%     \begin{tabular}{ p{5.7cm} p{5.7cm} }
+%         \hline
+%         \textbf{Functions} & \textbf{Description} \\
+%         \hline
+%         matplotlib.pyplot.\textbf{xlabel}(xlabel, fontdict=None, **kwargs) & Set the label for the x-axis. \\
+%         matplotlib.pyplot.\textbf{ylabel}(ylabel, fontdict=None, **kwargs) & Set the label for the y-axis. \\
+%         matplotlib.pyplot.\textbf{text}(x, y, s, fontdict=None, **kwargs) & Add text to the location. \\
+%         matplotlib.pyplot.\textbf{grid}(**kwargs) & Show the axes grids. \\
+%         matplotlib.pyplot.\textbf{subplot}(*args, **kwargs) & Add an Axes to the current figure or retrieve an existing Axes. \\
+%         \hline
+%     \end{tabular}
+% \end{frame}
+
+% \section{Plotting with Python}
+
+
+% \section{Working with Big Data}
+% \subsection{File format for Big Data}
+
+
+% 4 weeks
+% \section{Machine Learning}
+
+% 2 weeks
+% \subsection{Modelling Data with Modern Machine Learning}
+% \begin{frame}{Under Construction}
+    
+% \end{frame}
+
+\section{References}
+\begin{frame}
+\frametitle{References}
+\begin{thebibliography}{9}
+\bibitem{Python}
+Official Python Website.
+\url{https://www.python.org/}
+
+\bibitem{NumPy}
+NumPy Official Documentation.
+\url{https://numpy.org/doc/stable/index.html}
+
+\bibitem{Matplotlib}
+Matplotlib Official Documentation.
+\url{https://matplotlib.org/stable/contents.html}
+
+\bibitem{hospital.csv}
+Hospital Data in CSV file format.
+\url{https://myfiles.uni-bayreuth.de/filr/public-link/file-download/ff80808284a840220184bdca018046e1/72460/5595612019581229783/hospital.csv}
+\end{thebibliography}
+\end{frame}
+\end{document}
