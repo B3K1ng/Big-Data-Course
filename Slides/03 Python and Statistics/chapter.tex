@@ -1,5 +1,32 @@
 \documentclass{beamer}
 \begin{document}
+    \subsection{Big Data at a Glance}
+    \begin{frame}
+        \frametitle{Big Data at a Glance}
+        \begin{center}
+            \Huge How to "describe" Big Data?
+        \end{center}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Traditional View}
+        \begin{itemize}
+            \item Volume: The amount of data generated and stored
+            \item Variety: The different types of data (structured, unstructured, semi-structured)
+            \item Velocity: The speed at which data is generated and processed
+            \item Veracity: The quality and accuracy of the data
+            \item Value: The potential insights and benefits derived from the data
+        \end{itemize}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Scientists' View}
+        \begin{itemize}
+            \item Data Science: The field of study that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data
+            \begin{itemize}
+                \item Data Statistics
+                \item Data Modeling
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
     \subsection{Simple Statistics with Python}
     \subsubsection{Descriptive statistics}
     \begin{frame}
@@ -36,6 +63,12 @@
             \end{align*}
         \end{itemize}
     \end{frame}
+    \begin{frame}
+        \frametitle{Where is the centre of the distribution?}
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{figures/mmm.png}
+        \end{center}
+    \end{frame}
 
     \begin{frame}{How broad is the base?}
         \begin{itemize}
@@ -48,6 +81,45 @@
                 SD(x) = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(x_{i}-x_{mean})^{2}}
             \end{align*}
         \end{itemize}
+    \end{frame}
+    \begin{frame}
+        \frametitle{How broad is the base?}
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{figures/Variance.png}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{How distributed is the data?}
+        \begin{itemize}
+            \item \textbf{Skewness}
+            \begin{align*}
+                Skew(x) = \frac{1}{n}\sum_{i=1}^{n}\frac{(x_{i}-x_{mean})^{3}}{SD(x)^{3}}
+            \end{align*}
+            \item \textbf{Kurtosis}
+            \begin{align*}
+                Kurt(x) = \frac{1}{n}\sum_{i=1}^{n}\frac{(x_{i}-x_{mean})^{4}}{SD(x)^{4}} - 3
+            \end{align*}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}
+        \frametitle{How distributed is the data?}
+        \begin{center}
+            \includegraphics[width=0.7\textwidth]{figures/Skew.png}
+            \includegraphics[width=0.5\textwidth]{figures/Kurtosis.png}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{Example: Titanic}
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{figures/Titanic.png}
+        \end{center}
+    \end{frame}
+
+    \begin{frame}{Example: Metro Health and Income}
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{figures/scatter_ex_atlanticcities.jpg}
+        \end{center}
     \end{frame}
     \subsubsection{Calculating the Sum Using a For Loop}
     \begin{frame}[fragile]
@@ -113,6 +185,53 @@ print("The variance is:", variance)
         \begin{equation*}
             Var(x) = \frac{1}{n-1}\sum_{i=1}^{n}(x_{i}-x_{mean})^{2}
         \end{equation*}
+    \end{frame}
+
+    \subsubsection{Inferential statistics}
+    \begin{frame}{Inferential statistics}
+        \begin{itemize}
+            \item \textbf{Inferential Statistics} are statistical coefficients that allow us to make inferences about the population from the sample
+            \item \textbf{Inferential Statistics} usually answer two questions:
+            \begin{itemize}
+                \item How likely is it that the sample is representative of the population?
+                \item How likely is it that the sample is not representative of the population?
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+    \begin{frame}{How likely is it that the sample is representative of the population?}
+        \begin{itemize}
+            \item \textbf{Confidence Interval}
+            \begin{align*}
+                CI = x_{mean} \pm z_{\alpha/2}\frac{SD(x)}{\sqrt{n}}
+            \end{align*}
+            \item \textbf{Hypothesis Testing}
+            \begin{align*}
+                H_{0}: x_{mean} = x_{mean}^{\prime}\\
+                H_{1}: x_{mean} \neq x_{mean}^{\prime}
+            \end{align*}
+        \end{itemize}
+        \begin{center}
+            \includegraphics[width=0.4\textwidth]{figures/CI.png}
+        \end{center}
+    \end{frame}
+    \begin{frame}{How likely is it that the sample is not representative of the population?}
+        \begin{itemize}
+            \item \textbf{P-value}
+            \begin{align*}
+                p = P(H_{0}|H_{1})
+            \end{align*}
+            \item \textbf{Type I Error}
+            \begin{align*}
+                \alpha = P(H_{0}|H_{1})
+            \end{align*}
+            \item \textbf{Type II Error}
+            \begin{align*}
+                \beta = P(H_{1}|H_{0})
+            \end{align*}
+        \end{itemize}
+        \begin{center}
+            \includegraphics[width=0.4\textwidth]{figures/P-value.png}
+        \end{center}
     \end{frame}
 
     \subsection{Advance Statistics with Python Frameworks}
