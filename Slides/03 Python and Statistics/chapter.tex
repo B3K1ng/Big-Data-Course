@@ -300,6 +300,11 @@ c = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
         \end{example}
         more at \href{https://numpy.org/doc/stable/reference/routines.array-creation.html}{array creation}
     \end{frame}
+    \begin{frame}[fragile]{NumPy: N-D array}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{figures/what-is-numpy-768x429.png}
+        \end{center}
+    \end{frame}
     \begin{frame}[fragile]{NumPy: N-D array vs Python list}
         \textbf{NumPy: N-D array vs Python list}
         \begin{tabular}{ |p{5.7cm}|p{5.7cm}| }
@@ -377,6 +382,11 @@ c = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
     \end{frame}
 
     \begin{frame}[fragile]{NumPy: N-D Indexing}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{figures/what-is-numpy-768x429.png}
+        \end{center}
+    \end{frame}
+    \begin{frame}[fragile]{NumPy: N-D Indexing}
         Like Python's native list, a NumPy array can be indexed and sliced using numerical indices. But, unlike Python native Collections, an N-Dimensional NumPy array can be indexed within one set of square brackets.
         \begin{example}
             \begin{lstlisting}[language=Python]
@@ -388,6 +398,11 @@ a[0,1,2]
         \end{example}
     \end{frame}
 
+    \begin{frame}[fragile]{NumPy: N-D Slicing}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{figures/what-is-numpy-768x429.png}
+        \end{center}
+    \end{frame}
     \begin{frame}[fragile]{NumPy: N-D Slicing}
         Like indexing, the NumPy array can be sliced using Python's native slicing method. However, unlike the Python native method, the NumPy array supports multidimensional slicing.
         \begin{example}
@@ -401,6 +416,11 @@ a[0:2, :, :]
         \lstinline[language=Python]{:} denotes the range of slicing. \lstinline[language=Python]{...} denotes the rest of the dimensions.
     \end{frame}
 
+    \begin{frame}[fragile]{NumPy: Masking}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{figures/what-is-numpy-768x429.png}
+        \end{center}
+    \end{frame}
     \begin{frame}[fragile]{NumPy: Masking \& Indexing}
         Masking is a concept in Numerical Programming where a new boolean array (a mask) is created from an old array using a specified condition.
         \pause
@@ -414,6 +434,11 @@ a[mask] # [4, 5]
         \end{example}
     \end{frame}
 
+    \begin{frame}[fragile]{NumPy: Fancy Indexing}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{figures/what-is-numpy-768x429.png}
+        \end{center}
+    \end{frame}
     \begin{frame}[fragile]{NumPy: Fancy Indexing}
         Aside from mask indexing, NumPy also offers a method known as fancy indexing. In fancy indexing, multiple elements in an array are indexed in one call using another array or other collection. However, unlike slicing, these elements are not required to be contiguous.
         \begin{example}
@@ -471,9 +496,18 @@ a.reshape(4, -1) # reshape to 3x2 array
             \end{itemize}
         \end{block}
     \end{frame}
+    \begin{frame}[fragile]{Pandas: DataFrame}
+        \begin{block}{Pandas: DataFrame}
+            \begin{itemize}
+                \item A DataFrame is a two-dimensional, size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns).
+                \item A DataFrame is similar to a spreadsheet or SQL table or a dictionary of Series objects.
+                \item The DataFrame is generally the most commonly used pandas object.
+            \end{itemize}
+        \end{block}
+    \end{frame}
 
     \begin{frame}[fragile]
-    \frametitle{Descriptive statistics with Pandas}
+    \frametitle{Descriptive statistics with Pandas \& NumPy}
     \begin{lstlisting}[caption=Calculating the average and standard deviation of a column using Pandas][language=Python]
 average = data['A'].mean()
 std_dev = data['A'].std()
@@ -481,30 +515,30 @@ print("Average of column A:", average)
 print("Standard deviation of column A:", std_dev)
     \end{lstlisting}
     \end{frame}
-    \begin{frame}[fragile]
-        \frametitle{How distributed is the data?}
-        \begin{itemize}
-            \item \textbf{Histogram} is a graphical plot that shows the distribution of a numeric variable's values as a series of bars; each bar represents the frequency of the corresponding interval or bin of the data.
-            \item \textbf{Box plot} is a graphical representation of a dataset summarising its distribution in five key statistics: the minimum and maximum values, the lower and upper quartiles, and the median.
-        \end{itemize}
-    \end{frame}
+%     \begin{frame}[fragile]
+%         \frametitle{How distributed is the data?}
+%         \begin{itemize}
+%             \item \textbf{Histogram} is a graphical plot that shows the distribution of a numeric variable's values as a series of bars; each bar represents the frequency of the corresponding interval or bin of the data.
+%             \item \textbf{Box plot} is a graphical representation of a dataset summarising its distribution in five key statistics: the minimum and maximum values, the lower and upper quartiles, and the median.
+%         \end{itemize}
+%     \end{frame}
 
-    \begin{frame}[fragile]
-    \frametitle{Histograms}
-    \begin{lstlisting}[language=Python]
-import matplotlib.pyplot as plt
+%     \begin{frame}[fragile]
+%         \frametitle{Histograms}
+%         \begin{lstlisting}[language=Python]
+% import matplotlib.pyplot as plt
 
-# Create a list of ages
+% # Create a list of ages
 
-ages = [18, 22, 25, 28, 32, 35, 38, 41, 45, 48, 52, 55, 58, 62]
+% ages = [18, 22, 25, 28, 32, 35, 38, 41, 45, 48, 52, 55, 58, 62]
 
-# Define the bin edges
+% # Define the bin edges
 
-bin_edges = [18, 30, 40, 50, 62]
+% bin_edges = [18, 30, 40, 50, 62]
 
-# Create an empty list for the bin counts
+% # Create an empty list for the bin counts
 
-bin_counts = [0, 0, 0, 0]
-    \end{lstlisting}
-    \end{frame}
+% bin_counts = [0, 0, 0, 0]
+%         \end{lstlisting}
+%     \end{frame}
 \end{document}

@@ -23,19 +23,13 @@
         \end{center}
         more at \href{https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html}{matplotlib.pyplot.plot}
     \end{frame}
-    \begin{frame}[fragile]{Matplotlib: Plot styles}
+    \begin{frame}[fragile]{Matplotlib: Line Plot}
         \begin{itemize}
-            \item \textbf{Plot styles} consist of 3 elements in combinations: "[marker][line][color]" or [color][marker][line]
-            \item For example:
-            \begin{itemize}
-                \item 'r--' means a red dashed line with no marker.
-                \item 'bs' means blue square marker with no line.
-                \item 'g\^' means green triangle marker with no line.
-                \item 'k:' means a black dotted line with no marker.
-                \item 'mX-' means magenta X-filled marker with a solid line.
-            \end{itemize}
+            \item Line plot is a basic plot type in \textbf{matplotlib}.
+            \item It is used to visualize the relationship between two variables.
         \end{itemize}
     \end{frame}
+
     \begin{frame}[fragile]{Matplotlib: Scatter Plot}
         matplotlib.pyplot.\textbf{scatter}(x, y, s=None, c=None, marker=None, cmap=None, \dots, **kwargs)\\
         \begin{center}
@@ -43,6 +37,14 @@
         \end{center}
         more at \href{https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html}{matplotlib.pyplot.scatter}
     \end{frame}
+    \begin{frame}[fragile]{Matplotlib: Scatter Plot}
+        \begin{itemize}
+            \item Scatter plot is used to visualize the spatial relationship between two variables.
+            \item Each point in the scatter plot represents an observation in the dataset.
+            \item Scatter plots are useful for identifying patterns, trends, and outliers in the data.
+        \end{itemize}
+    \end{frame}
+
     \begin{frame}[fragile]{Matplotlib: Box \& Whisker Plot}
         matplotlib.pyplot.\textbf{boxplot}x, vert=None, positions=None, widths=None, patch_artist=None, \dots, **kwargs)\\
         \begin{center}
@@ -50,12 +52,53 @@
         \end{center}
         more at \href{https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html}{matplotlib.pyplot.hist}
     \end{frame}
+    \begin{frame}
+        \frametitle{Box \& Whisker Plot}
+        \begin{itemize}
+            \item Box and whisker plot is used to visualize the distribution of a dataset.
+            \item It shows the median, quartiles, and outliers of the data.
+            \item Box and whisker plots are useful for comparing distributions between different groups.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[fragile]{Matplotlib: Violin Plot}
+        matplotlib.pyplot.\textbf{violinplot}(dataset, positions=None, vert=True, widths=0.8, showmeans=False, \dots, **kwargs)\\
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{figures/violinplot.png}\\
+        \end{center}
+        more at \href{https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.violinplot.html}{matplotlib.pyplot.violinplot}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Violin Plot}
+        \begin{itemize}
+            \item Violin plot is used to visualize the distribution of a dataset.
+            \item It combines the features of a box plot and a density plot.
+            \item Violin plots are useful for comparing distributions between different groups.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}[fragile]{Matplotlib: Bar Plot}
+        matplotlib.pyplot.\textbf{bar}(x, height, width=0.8, bottom=None, align='center', \dots, **kwargs)\\
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{figures/bar.png}\\
+        \end{center}
+        more at \href{https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.bar.html}{matplotlib.pyplot.bar}
+    \end{frame}
+
     \begin{frame}[fragile]{Matplotlib: Histograms}
         matplotlib.pyplot.\textbf{hist}(x, bins=None, range=None, density=False, \dots, **kwargs)\\
         \begin{center}
             \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{figures/Hist.png}\\
         \end{center}
         more at \href{https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html}{matplotlib.pyplot.hist}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Histograms}
+        \begin{itemize}
+            \item Histograms are used to visualize the distribution of a dataset.
+            \item They show the frequency of data points within specified ranges (bins).
+            \item Histograms are useful for identifying the shape and spread of the data.
+        \end{itemize}
     \end{frame}
 
     \begin{frame}[fragile]
@@ -112,5 +155,19 @@ plt.ylabel('Value')
 plt.title('Box Plots of Columns')
 plt.show()
         \end{lstlisting}
+    \end{frame}
+
+    \begin{frame}[fragile]{Matplotlib: Plot styles}
+        \begin{itemize}
+            \item \textbf{Plot styles} consist of 3 elements in combinations: "[marker][line][color]" or [color][marker][line]
+            \item For example:
+            \begin{itemize}
+                \item 'r--' means a red dashed line with no marker.
+                \item 'bs' means blue square marker with no line.
+                \item 'g\^' means green triangle marker with no line.
+                \item 'k:' means a black dotted line with no marker.
+                \item 'mX-' means magenta X-filled marker with a solid line.
+            \end{itemize}
+        \end{itemize}
     \end{frame}
 \end{document}
