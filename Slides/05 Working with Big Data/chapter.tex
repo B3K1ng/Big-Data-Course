@@ -117,28 +117,28 @@ MAT-file is a binary file format used within MATLAB to store workspace variables
     \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{HDF5}
-    HDF5 represents a high-performance data software library that interacts with a Hierarchical Data Format file.
-    \begin{center}
-        \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{hdf5_structure.jpg}
-    \end{center}
-    \footnotetext{\href{https://www.neonscience.org/resources/learning-hub/tutorials/about-hdf5}{Source}}
-\end{frame}
-\begin{frame}[fragile]{HDF5}
-    Unlike other frameworks in this section, the Python \lstinline[language=Python]{h5py} library operates similarly to the native Python's file I/O Operation.
-    \begin{block}{Open and Close File}
-        \begin{lstlisting}[language=Python]
-file_obj = h5py.File(file_path, file_mode)
-file_obj.close()
-        \end{lstlisting}
-    \end{block}
-    \begin{block}{Writing and Reading Dataset}
-        \begin{lstlisting}[language=Python]
-file_obj.create_dataset(
-dataset_path, shape=None,
-dtype=None, data=None, **kwargs)
-file_obj[dataset_path]
-        \end{lstlisting}
-    \end{block}
-\end{frame}
+% \begin{frame}[fragile]{HDF5}
+%     HDF5 represents a high-performance data software library that interacts with a Hierarchical Data Format file.
+%     \begin{center}
+%         \includegraphics[width=\textwidth,height=0.6\textheight,keepaspectratio]{hdf5_structure.jpg}
+%     \end{center}
+%     \footnotetext{\href{https://www.neonscience.org/resources/learning-hub/tutorials/about-hdf5}{Source}}
+% \end{frame}
+% \begin{frame}[fragile]{HDF5}
+%     Unlike other frameworks in this section, the Python \lstinline[language=Python]{h5py} library operates similarly to the native Python's file I/O Operation.
+%     \begin{block}{Open and Close File}
+%         \begin{lstlisting}[language=Python]
+% file_obj = h5py.File(file_path, file_mode)
+% file_obj.close()
+%         \end{lstlisting}
+%     \end{block}
+%     \begin{block}{Writing and Reading Dataset}
+%         \begin{lstlisting}[language=Python]
+% file_obj.create_dataset(
+% dataset_path, shape=None,
+% dtype=None, data=None, **kwargs)
+% file_obj[dataset_path]
+%         \end{lstlisting}
+%     \end{block}
+% \end{frame}
 \end{document}

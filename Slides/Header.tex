@@ -1,0 +1,51 @@
+\ProvidesPackage{BigDataHeader}
+\usepackage{tikz}
+\usepackage{import}
+\usepackage{docmute}
+% \usepackage{enumitem}
+\usepackage{animate}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage[edges]{forest}
+\usepackage[utf8]{inputenc}
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\usetikzlibrary{tikzmark,decorations.pathreplacing,shadows,arrows.meta}
+\tikzstyle{curly} = [decorate,decoration={brace,amplitude=10pt}]
+\colorlet{ProcessBlue}{blue!50!cyan}
+
+\tikzset{
+  selected/.style={draw=ProcessBlue, thick, rounded corners=2pt, inner color=ProcessBlue!25, outer color=ProcessBlue!35, drop shadow,},
+}
+
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  commentstyle=\color{green},
+  showstringspaces=false,
+  numbers=none,
+  texcl=true,
+  numberstyle=\tiny,
+  breaklines=true,
+  breakatwhitespace=true,
+  frame=single,
+  columns=fullflexible,
+  keepspaces=true,
+  captionpos=b,
+  upquote=true
+}
